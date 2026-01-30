@@ -34,7 +34,7 @@
     <h1 class="fw-bold">Transform Your Health Naturally</h1>
     <p class="lead">Personalized nutrition & lifestyle coaching</p>
     <a href="https://wa.me/919999999999" class="btn btn-success btn-lg">
-      Book Free Consultation
+      Book  Consultation
     </a>
   </div>
 </section>
