@@ -32,7 +32,6 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="programs.html">Programs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Insights</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item ms-lg-3">
                         <a href="contact.html" class="btn btn-primary">Get Started</a>
@@ -45,7 +44,7 @@
     <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
         <div class="container text-center">
             <h1 class="hero-title">Start Your Wellness Plan</h1>
-            <p class="lead text-muted">Reach out for a consultation or program guidance.</p>
+            <p class="lead text-muted">Reach out for program guidance.</p>
         </div>
     </section>
 
@@ -63,7 +62,7 @@
                                 </div>
                                 <div>
                                     <div class="fw-bold">Call Us</div>
-                                    <div class="text-muted">+91 98444 96974</div>
+                                    <div class="text-muted">+91 93433 57877</div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start mb-3">
@@ -72,7 +71,7 @@
                                 </div>
                                 <div>
                                     <div class="fw-bold">Email</div>
-                                    <div class="text-muted">support@janapriyawellnessworld.com</div>
+                                    <div class="text-muted">janapriyawellnessworld@gmail.com</div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-start">
@@ -81,15 +80,15 @@
                                 </div>
                                 <div>
                                     <div class="fw-bold">Studio</div>
-                                    <div class="text-muted">T. Nagar, Chennai</div>
+                                    <div class="text-muted">Banashankari, Bengaluru</div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mt-4">
-                            <a href="https://wa.me/919844496974" class="btn btn-success w-100 rounded-pill">
+                            <button type="button" class="btn btn-success w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#whatsappLanguageModal">
                                 <i class="fab fa-whatsapp me-2"></i> Chat on WhatsApp
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -102,7 +101,7 @@
                                 <h3 class="fw-bold mb-3">Start your wellness registration</h3>
                                 <p class="text-muted mb-4">Continue to the Janapriya Wellness app to create your account with the correct referral link.</p>
                                 <a href="https://app.janapriyawellnessworld.com/api/referrals/public/register" class="btn btn-primary w-100 py-3 fw-bold shadow-lg">
-                                    Continue to Registration
+                                    Watch the Session
                                 </a>
                             </div>
                         </div>
@@ -111,6 +110,24 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="whatsappLanguageModal" tabindex="-1" aria-labelledby="whatsappLanguageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="whatsappLanguageModalLabel">Choose your message language</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">Select the message language, and WhatsApp will open with a ready-to-send note and the website link.</p>
+                    <div class="d-grid gap-3">
+                        <button type="button" class="btn btn-outline-primary btn-lg" onclick="openWhatsAppMessage('en')">English</button>
+                        <button type="button" class="btn btn-outline-primary btn-lg" onclick="openWhatsAppMessage('kn')">Kannada</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -124,7 +141,6 @@
                         <a href="privacy.html">Privacy Policy</a>
                         <a href="index.html">Home</a>
                         <a href="programs.html">Programs</a>
-                        <a href="blog.html">Insights</a>
                         <a href="about.html">About</a>
                         <a href="contact.html">Contact</a>
                         <a href="terms.html">Terms of Service</a>
@@ -149,5 +165,23 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openWhatsAppMessage(language) {
+            const phone = '919343357877';
+            const website = 'https://www.janapriyawellnessworld.com';
+            const messages = {
+                en: `Hi Janapriya Wellness, I would like to know more about your wellness programs. I visited ${website}.`,
+                kn: `ನಮಸ್ಕಾರ Janapriya Wellness, ನಿಮ್ಮ wellness programs ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿದುಕೊಳ್ಳಲು ಇಚ್ಛಿಸುತ್ತೇನೆ. ನಾನು ${website} ನೋಡಿದ್ದೇನೆ.`
+            };
+
+            const message = encodeURIComponent(messages[language] || messages.en);
+            const modalElement = document.getElementById('whatsappLanguageModal');
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            if (modalInstance) {
+                modalInstance.hide();
+            }
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank', 'noopener');
+        }
+    </script>
 </body>
 </html>
